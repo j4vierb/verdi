@@ -1,0 +1,21 @@
+.pedidos-title-group {
+    background-color: #0B2D21;
+    margin-bottom: 20px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+
+}
+
+.pedidos-title {
+    color: white;
+    font-size: 2em;
+    font-family: 'Inter', sans-serif; 
+    font-weight: 700;
+    padding-left: 50px;
+}
+
+.elements-group {
+    display: block;
+    text-align: center;
+}

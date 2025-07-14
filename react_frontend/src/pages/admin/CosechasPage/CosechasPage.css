@@ -1,0 +1,60 @@
+.admin-cosechas-list {
+    padding: 1rem;
+}
+
+.container-cosechas-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cosechas-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+    column-gap: 2rem;
+    justify-items: center;
+    width: 100%;
+}
+
+.admin-cosechas-list h3 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #0B2D21;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.status-cosecha-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  border: solid;
+  border-width: 1px;
+  border-color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+@media screen and (min-width: 800px) {
+    .cosechas-list {
+        grid-template-columns: 1fr 1fr;
+        padding: 0 2rem;
+    }
+}
+
+
+@media screen and (min-width: 1000px) {
+  .cosechas-list {
+      grid-template-columns: 1fr 1fr 1fr;
+      max-width: 60rem;
+  }
+
+  .admin-cosechas-list h3 {
+      margin-left: 3rem;
+  }
+}

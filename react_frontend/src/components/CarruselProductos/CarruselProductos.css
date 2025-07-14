@@ -1,0 +1,36 @@
+.carrusel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 40px;
+    position: relative;
+    gap: 10px;
+    padding: 20px 0;
+    margin-bottom: 50px;
+  }
+  
+  .productos-container {
+    display: flex;
+    overflow: hidden;
+    gap: 20px;
+    width: 850px;
+  }
+  
+  .flecha {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #173030;
+    transition: transform 0.2s;
+  }
+  
+  .flecha:hover {
+    transform: scale(1.2);
+  }
+  
+  .flecha:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+  }
+  

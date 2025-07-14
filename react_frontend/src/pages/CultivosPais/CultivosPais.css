@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+
+.title-groupRR {
+    background-color: #0B2D21;
+    height: 200px;
+}
+
+.titleR {
+    color: black;
+    font-size: 5em;
+    font-family: 'Inter', sans-serif; /* Aplica la tipografía Inter */
+    font-weight: 700;
+    padding-top: 39px;
+    padding-left: 50px;
+    margin-top: 0px;
+    
+}
+
+.elements-groupRR {
+    display: block; /* Cambia inline-block a block para que text-align funcione */
+    text-align: center;
+    
+}

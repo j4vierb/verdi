@@ -1,0 +1,43 @@
+.unauthorized-container {
+  text-align: center;
+  padding: 50px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.unauthorized-img {
+  width: 700px;
+  max-width: 90%;
+  margin-bottom: 30px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.unauthorized-button {
+  padding: 12px 25px;
+  background-color: #173030;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.unauthorized-button:hover {
+  background-color: #125252;
+}
+
+.unauthorized-button.secundario {
+  background-color: #ffffff;
+  color: #173030;
+  border: 2px solid #173030;
+}
+
+.unauthorized-button.secundario:hover {
+  background-color: #f0f0f0;
+}

@@ -1,0 +1,45 @@
+.notification-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 16px;
+    max-width: 20rem;
+    height: 10rem;
+    font-family: Arial, sans-serif;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    user-select: none;
+}
+
+.notification-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-title h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.notification-title span {
+    background-color: orange;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.notification-text p {
+    margin: 8px 0 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.notification-card:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+

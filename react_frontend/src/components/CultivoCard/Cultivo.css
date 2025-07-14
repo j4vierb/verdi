@@ -1,0 +1,71 @@
+.card-cultivo {
+    border: 3px solid black;
+    border-radius: 0.4rem;
+    text-align: left;
+    max-width: 20rem;
+    user-select: none;
+    position: relative;
+}
+
+.imagen-card {
+    width: 100%;
+    border-radius: 0.2rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.card-info {
+    padding: 0.5rem;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+#card-cantidad {
+    color: gray;
+}
+
+.card-time {
+    margin-top: 10px;
+    padding-left: 0.5rem;
+}
+
+.card-location {
+    font-size: 16px;
+    margin-top: 0px;
+}
+
+.card-cultivo p {
+    margin-left: 0;
+    font-size: medium;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Botonesss */
+
+.card-buttons button {
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 0.4rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Botón de Iniciar Sesión */
+.card-buttons button:first-child {
+    background-color: #fff;
+    color: #173030;
+    border: 2px solid #173030;
+    margin-right: 0.5rem;
+}

@@ -1,0 +1,1085 @@
+{
+	"info": {
+		"_postman_id": "ac5f918f-9ea2-49ac-b614-17cbd0186033",
+		"name": "Pedido-eventualidad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32617270",
+		"_collection_link": "https://parcial-4365.postman.co/workspace/API-web~73454394-50f1-4ba1-97be-29ab0409be61/collection/32617270-ac5f918f-9ea2-49ac-b614-17cbd0186033?action=share&source=collection_link&creator=32617270"
+	},
+	"item": [
+		{
+			"name": "Obtener pedidos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const ID = await pm.response.json()[0].id\r",
+							"pm.collectionVariables.set('PEDIDO_ID', ID)\r",
+							"\r",
+							"pm.test('it should return \"pedidos\"', () => {\r",
+							"    const response = pm.response.json();\r",
+							"    pm.expect(response.length).to.be.eql(3);\r",
+							"})\r",
+							"\r",
+							"pm.test('it should to have \"estado = Preparando los productos\"', () => {\r",
+							"    const response = pm.response.json();\r",
+							"    for(let obj of response) {\r",
+							"        pm.expect(obj.estado).to.be.eql(\"Preparando los productos\");\r",
+							"    }\r",
+							"})\r",
+							"\r",
+							"pm.test('status code should be 200', () => {\r",
+							"    pm.expect(pm.response.code).to.be.eql(200);\r",
+							"})\r",
+							"\r",
+							"pm.execution.setNextRequest('Añadir eventualidad a pedido');\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pedido/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pedido",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener pedidos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/pedido/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"pedido",
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "[\n    {\n        \"id\": \"c60583b8-ea0a-4852-9559-74c588b98ba1\",\n        \"direccionRecoger\": \"Avenida 30\",\n        \"direccionEntregar\": \"Calle 30\",\n        \"estado\": \"Preparando los productos\",\n        \"fechaEntrega\": \"2025-05-28T00:14:18.174Z\"\n    },\n    {\n        \"id\": \"1454d18a-336a-4d19-b3b1-c66a512dad46\",\n        \"direccionRecoger\": \"Avenida 34\",\n        \"direccionEntregar\": \"Calle 36\",\n        \"estado\": \"Preparando los productos\",\n        \"fechaEntrega\": \"2025-05-28T00:14:18.175Z\"\n    },\n    {\n        \"id\": \"0b17464b-0087-45d5-b6f8-12de5dd60a41\",\n        \"direccionRecoger\": \"Avenida 32\",\n        \"direccionEntregar\": \"Calle 33\",\n        \"estado\": \"Preparando los productos\",\n        \"fechaEntrega\": \"2025-05-28T00:14:18.175Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Añadir eventualidad con pedido no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('eventualidad should have the form', () => {\r",
+							"    const obj = pm.response.json();\r",
+							"\r",
+							"    pm.expect(obj.message).to.be.eql(\"El pedido con el id no existe\");\r",
+							"})\r",
+							"\r",
+							"pm.test('status code should be not found', () => {\r",
+							"    pm.expect(pm.response.code).to.be.eql(404);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo\": \"Baja\",\r\n    \"fecha\": \"2025-06-03\",\r\n    \"descripcion\": \"trancones en el camino\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pedido-eventualidad/d68a2900-f9d0-4caf-ad7a-fc5893e03b56/eventualidades/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pedido-eventualidad",
+						"d68a2900-f9d0-4caf-ad7a-fc5893e03b56",
+						"eventualidades",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Añadir eventualidad con pedido no existente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo\": \"Baja\",\r\n    \"fecha\": \"2025-06-03\",\r\n    \"descripcion\": \"trancones en el camino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/pedido-eventualidad/d68a2900-f9d0-4caf-ad7a-fc5893e03b56}/eventualidades/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"pedido-eventualidad",
+								"d68a2900-f9d0-4caf-ad7a-fc5893e03b56}",
+								"eventualidades",
+								""
+							]
+						}
+					},
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El pedido con el id no existe\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Añadir eventualidad a pedido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const ID = await pm.response.json().id;\r",
+							"pm.collectionVariables.set(\"EVENTUALIDAD_ID\", ID)\r",
+							"\r",
+							"pm.test('eventualidad should have the form', () => {\r",
+							"    const obj = pm.response.json();\r",
+							"\r",
+							"    pm.expect(obj.tipo).to.be.eql(\"Baja\");\r",
+							"    pm.expect(obj.fecha).to.be.eql(\"2025-06-03\");\r",
+							"    pm.expect(obj.descripcion).to.be.eql(\"trancones en el camino\");\r",
+							"})\r",
+							"\r",
+							"pm.test('status code should be created', () => {\r",
+							"    pm.expect(pm.response.code).to.be.eql(201);\r",
+							"})\r",
+							"\r",
+							"pm.execution.setNextRequest('Obtener eventualidad creada');\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo\": \"Baja\",\r\n    \"fecha\": \"2025-06-03\",\r\n    \"descripcion\": \"trancones en el camino\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pedido-eventualidad",
+						"{{PEDIDO_ID}}",
+						"eventualidades",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Añadir eventualidad a pedido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo\": \"Baja\",\r\n    \"fecha\": \"2025-06-03\",\r\n    \"descripcion\": \"trancones en el camino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"pedido-eventualidad",
+								"{{PEDIDO_ID}}",
+								"eventualidades",
+								""
+							]
+						}
+					},
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"tipo\": \"Baja\",\n    \"fecha\": \"2025-06-03\",\n    \"descripcion\": \"trancones en el camino\",\n    \"id\": 1,\n    \"pedido\": {\n        \"id\": \"e4406eb5-35fa-4882-9dcf-8ed40b5cf04e\",\n        \"direccionRecoger\": \"Avenida 30\",\n        \"direccionEntregar\": \"Calle 30\",\n        \"estado\": \"Preparando los productos\",\n        \"fechaEntrega\": \"2025-05-28T00:30:10.571Z\",\n        \"eventualidades\": []\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Eventualidad ya existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('eventualidad should have the form', () => {\r",
+							"    const obj = pm.response.json();\r",
+							"\r",
+							"    pm.expect(obj.message).to.be.eql(\"La eventualidad con el id ya existe\");\r",
+							"})\r",
+							"\r",
+							"pm.test('status code should be not found', () => {\r",
+							"    pm.expect(pm.response.code).to.be.eql(404);\r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo\": \"Baja\",\r\n    \"fecha\": \"2025-06-03\",\r\n    \"descripcion\": \"trancones en el camino\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pedido-eventualidad",
+						"{{PEDIDO_ID}}",
+						"eventualidades",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eventualidad ya existente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo\": \"Baja\",\r\n    \"fecha\": \"2025-06-03\",\r\n    \"descripcion\": \"trancones en el camino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"pedido-eventualidad",
+								"{{PEDIDO_ID}}",
+								"eventualidades",
+								""
+							]
+						}
+					},
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La eventualidad con el id ya existe\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener eventualidad creada",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const RESPONSE = pm.response.json();\r",
+							"\r",
+							"pm.test('returned eventualidades', () => {\r",
+							"    pm.expect(RESPONSE.length).to.be.greaterThan(0);\r",
+							"    pm.expect(RESPONSE[0].id).to.be.eql(1);\r",
+							"})\r",
+							"\r",
+							"pm.test('status code should be 200', () => {\r",
+							"    pm.expect(pm.response.code).to.be.eql(200);\r",
+							"})\r",
+							"\r",
+							"pm.execution.setNextRequest(\"Obtener eventualidades\")\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pedido-eventualidad",
+						"{{PEDIDO_ID}}",
+						"eventualidades",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener eventualidad creada",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "[\n    {\n        \"id\": 1,\n        \"tipo\": \"Baja\",\n        \"fecha\": \"2025-06-03T05:00:00.000Z\",\n        \"descripcion\": \"trancones en el camino\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Actualizar eventualidad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const RESPONSE = pm.response.json();\r",
+							"\r",
+							"pm.test('response should to have some properties', () => {\r",
+							"    pm.expect(RESPONSE.id).to.be.eql(pm.collectionVariables.get('EVENTUALIDAD_ID'));\r",
+							"    pm.expect(RESPONSE.tipo).to.be.eql(\"Media\");\r",
+							"})\r",
+							"\r",
+							"pm.test('status code should be 200', () => {\r",
+							"    pm.expect(pm.response.code).to.be.eql(200);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{EVENTUALIDAD_ID}},\r\n    \"tipo\": \"Media\",\r\n    \"fecha\": \"2025-07-03\",\r\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/{{EVENTUALIDAD_ID}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pedido-eventualidad",
+						"{{PEDIDO_ID}}",
+						"eventualidades",
+						"{{EVENTUALIDAD_ID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar eventualidad",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": {{EVENTUALIDAD_ID}},\r\n    \"tipo\": \"Media\",\r\n    \"fecha\": \"2025-07-03\",\r\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/{{EVENTUALIDAD_ID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"pedido-eventualidad",
+								"{{PEDIDO_ID}}",
+								"eventualidades",
+								"{{EVENTUALIDAD_ID}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"id\": 1,\n    \"tipo\": \"Media\",\n    \"fecha\": \"2025-07-03\",\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar eventualidad con ID erroneo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const RESPONSE = pm.response.json();\r",
+							"\r",
+							"pm.test('response should to have some properties', () => {\r",
+							"    pm.expect(RESPONSE.message).to.be.eql(\"La eventualidad con el id no existe\");\r",
+							"})\r",
+							"\r",
+							"pm.test('status code should be 404', () => {\r",
+							"    pm.expect(pm.response.code).to.be.eql(404);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 9999,\r\n    \"tipo\": \"Media\",\r\n    \"fecha\": \"2025-07-03\",\r\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/9999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pedido-eventualidad",
+						"{{PEDIDO_ID}}",
+						"eventualidades",
+						"9999"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar eventualidad",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": {{EVENTUALIDAD_ID}},\r\n    \"tipo\": \"Media\",\r\n    \"fecha\": \"2025-07-03\",\r\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/{{EVENTUALIDAD_ID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"pedido-eventualidad",
+								"{{PEDIDO_ID}}",
+								"eventualidades",
+								"{{EVENTUALIDAD_ID}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"id\": 1,\n    \"tipo\": \"Media\",\n    \"fecha\": \"2025-07-03\",\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\n}"
+				},
+				{
+					"name": "Actualizar eventualidad con ID erroneo",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 9999,\r\n    \"tipo\": \"Media\",\r\n    \"fecha\": \"2025-07-03\",\r\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/9999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"pedido-eventualidad",
+								"{{PEDIDO_ID}}",
+								"eventualidades",
+								"9999"
+							]
+						}
+					},
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La eventualidad con el id no existe\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar eventualidad con pedido ID erroneo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const RESPONSE = pm.response.json();\r",
+							"\r",
+							"pm.test('response should to have some properties', () => {\r",
+							"    pm.expect(RESPONSE.message).to.be.eql(\"El pedido con el id no existe\");\r",
+							"})\r",
+							"\r",
+							"pm.test('status code should be 404', () => {\r",
+							"    pm.expect(pm.response.code).to.be.eql(404);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{EVENTUALIDAD_ID}},\r\n    \"tipo\": \"Media\",\r\n    \"fecha\": \"2025-07-03\",\r\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pedido-eventualidad/c68a2900-f9d0-4caf-ad7a-fc5893e03b56/eventualidades/{{EVENTUALIDAD_ID}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pedido-eventualidad",
+						"c68a2900-f9d0-4caf-ad7a-fc5893e03b56",
+						"eventualidades",
+						"{{EVENTUALIDAD_ID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar eventualidad con ID erroneo",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 9999,\r\n    \"tipo\": \"Media\",\r\n    \"fecha\": \"2025-07-03\",\r\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/9999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"pedido-eventualidad",
+								"{{PEDIDO_ID}}",
+								"eventualidades",
+								"9999"
+							]
+						}
+					},
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La eventualidad con el id no existe\"\n}"
+				},
+				{
+					"name": "Actualizar eventualidad con pedido ID erroneo",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": {{EVENTUALIDAD_ID}},\r\n    \"tipo\": \"Media\",\r\n    \"fecha\": \"2025-07-03\",\r\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/pedido-eventualidad/c68a2900-f9d0-4caf-ad7a-fc5893e03b56/eventualidades/{{EVENTUALIDAD_ID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"pedido-eventualidad",
+								"c68a2900-f9d0-4caf-ad7a-fc5893e03b56",
+								"eventualidades",
+								"{{EVENTUALIDAD_ID}}"
+							]
+						}
+					},
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El pedido con el id no existe\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar eventualidad con ID eventualidad distinto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const RESPONSE = pm.response.json();\r",
+							"\r",
+							"pm.test('response should to have some properties', () => {\r",
+							"    pm.expect(RESPONSE.message).to.be.eql(\"El id de la eventualidad no coincide con el id de la eventualidad en la URL\");\r",
+							"})\r",
+							"\r",
+							"pm.test('status code should be 400', () => {\r",
+							"    pm.expect(pm.response.code).to.be.eql(400);\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 9999,\r\n    \"tipo\": \"Media\",\r\n    \"fecha\": \"2025-07-03\",\r\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/{{EVENTUALIDAD_ID}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pedido-eventualidad",
+						"{{PEDIDO_ID}}",
+						"eventualidades",
+						"{{EVENTUALIDAD_ID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar eventualidad con pedido ID erroneo",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": {{EVENTUALIDAD_ID}},\r\n    \"tipo\": \"Media\",\r\n    \"fecha\": \"2025-07-03\",\r\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/pedido-eventualidad/c68a2900-f9d0-4caf-ad7a-fc5893e03b56/eventualidades/{{EVENTUALIDAD_ID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"pedido-eventualidad",
+								"c68a2900-f9d0-4caf-ad7a-fc5893e03b56",
+								"eventualidades",
+								"{{EVENTUALIDAD_ID}}"
+							]
+						}
+					},
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El pedido con el id no existe\"\n}"
+				},
+				{
+					"name": "Actualizar eventualidad con ID eventualidad distinto",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 9999,\r\n    \"tipo\": \"Media\",\r\n    \"fecha\": \"2025-07-03\",\r\n    \"descripcion\": \"Existe un trancon en la via por la cual pasa el transportador.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/pedido-eventualidad/{{PEDIDO_ID}}/eventualidades/{{EVENTUALIDAD_ID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"pedido-eventualidad",
+								"{{PEDIDO_ID}}",
+								"eventualidades",
+								"{{EVENTUALIDAD_ID}}"
+							]
+						}
+					},
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": \"El id de la eventualidad no coincide con el id de la eventualidad en la URL\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "PEDIDO_ID",
+			"value": ""
+		},
+		{
+			"key": "EVENTUALIDAD_ID",
+			"value": ""
+		}
+	]
+}

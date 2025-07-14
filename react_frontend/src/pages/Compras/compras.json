@@ -1,0 +1,8 @@
+[
+  { "id": 1, "nombre": "Cafe Barako 1", "estado": "En camino" },
+  { "id": 2, "nombre": "Cafe Barako 2", "estado": "Procesando pedido" },
+  { "id": 3, "nombre": "Cafe Barako 3", "estado": "Entregado" },
+  { "id": 4, "nombre": "Cafe Barako 4", "estado": "En camino" },
+  { "id": 5, "nombre": "Cafe Barako 5", "estado": "Procesando pedido" },
+  { "id": 6, "nombre": "Cafe Barako 6", "estado": "Entregado" }
+]

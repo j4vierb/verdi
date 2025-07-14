@@ -1,0 +1,40 @@
+.container-404 {
+	background-color: #4caf50;
+	color: white;
+	padding: 50px;
+	min-height: 61.2vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.container-404 h1 {
+	font-size: 5rem;
+	font-weight: bolder;
+	margin: 0;
+}
+
+.container-404 p {
+	font-size: 1.5rem;
+	margin-bottom: 20px;
+}
+
+.container-404 a {
+	text-decoration: none;
+	background-color: #ffffff;
+	color: #4caf50;
+	padding: 10px 30px;
+	border-radius: 20px;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
+	margin-top: 5px;
+}
+
+.container-404 a:hover {
+	background-color: #4caf50;
+	color: white;
+	border-color: #fff;
+	border: solid;
+	border-width: 1px;
+}

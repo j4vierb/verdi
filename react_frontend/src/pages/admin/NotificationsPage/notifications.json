@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Clima complicado",
+    "description": "El clima no permite que se realice la extracción de los recursos.",
+    "relevance": 0
+  },
+  {
+    "id": 2,
+    "title": "Clima complicado",
+    "description": "El clima no permite que se realice la extracción de los recursos.",
+    "relevance": 1
+  },
+  {
+    "id": 3,
+    "title": "Sin recursos",
+    "description": "El proveedor hizo la venta de todos los productos antes de actualizar en la plataforma y ahora no hay quien responda por el pedido.",
+    "relevance": 2
+  }
+]

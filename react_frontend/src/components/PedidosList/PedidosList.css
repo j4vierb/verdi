@@ -1,0 +1,67 @@
+.pedidos-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.pedidos-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pedidos-table th, .pedidos-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.pedidos-table th {
+    background: #173030;
+    color: white;
+}
+
+.pedido-id {
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 🔹 Estado del pedido - Diferentes colores */
+.status {
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    width: 120px;
+}
+
+/* Estados de pedidos */
+.status.por-recoger {
+    background: rgba(255, 165, 0, 0.2);
+    color: #ffa500;
+    border: 2px solid #ffa500;
+}
+
+.status.confirmado {
+    background: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+    border: 2px solid #28a745;
+}
+
+.status.entregado {
+    background: rgba(0, 123, 255, 0.2);
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.status.cancelado {
+    background: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    border: 2px solid #dc3545;
+}

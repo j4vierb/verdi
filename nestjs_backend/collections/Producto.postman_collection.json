@@ -1,0 +1,522 @@
+{
+	"info": {
+		"_postman_id": "edcf3a33-c47d-4029-a29f-4dbda966d164",
+		"name": "Producto API",
+		"description": "Colección para probar endpoints de Producto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32617270",
+		"_collection_link": "https://parcial-4365.postman.co/workspace/API-web~73454394-50f1-4ba1-97be-29ab0409be61/collection/32617270-edcf3a33-c47d-4029-a29f-4dbda966d164?action=share&source=collection_link&creator=32617270"
+	},
+	"item": [
+		{
+			"name": "GET todos los productos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+							"pm.test(\"Debe ser array\", () => {",
+							"  pm.expect(pm.response.json()).to.be.an(\"array\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/producto",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"producto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST crear producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200 o 201\", () => {",
+							"  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							"pm.test(\"Guardar ID del producto creado\", () => {",
+							"  const json = pm.response.json();",
+							"  pm.expect(json).to.have.property(\"id\");",
+							"  pm.environment.set(\"producto_id\", json.id);",
+							"});",
+							"",
+							"const response = pm.response.json();",
+							"pm.collectionVariables.set('ID_PRODUCTO', response.id);",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Manzana Roja\",\n  \"precio\": 4500,\n  \"imagen\": \"https://example.com/img.jpg\",\n  \"categoria\": \"Frutas\",\n  \"cantidad_vendida\": 0,\n  \"estado\": \"No verificado\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET producto por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+							"pm.test(\"Tiene los campos clave\", () => {",
+							"  const json = pm.response.json();",
+							"  pm.expect(json).to.have.property(\"nombre\");",
+							"  pm.expect(json).to.have.property(\"precio\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/producto/{{producto_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"producto",
+						"{{producto_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT actualizar producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+							"pm.test(\"Nombre actualizado\", () => {",
+							"  const json = pm.response.json();",
+							"  pm.expect(json.nombre).to.eql(\"Manzana Verde\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Manzana Verde\",\n  \"precio\": 4800,\n  \"imagen\": \"https://example.com/verde.jpg\",\n  \"categoria\": \"Frutas\",\n  \"cantidad_vendida\": 5\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/producto/{{producto_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"producto",
+						"{{producto_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200 o 204\", () => {",
+							"  pm.expect(pm.response.code).to.be.oneOf([200, 204]);",
+							"});",
+							"pm.test(\"Producto eliminado (mensaje opcional)\", () => {",
+							"  const text = pm.response.text();",
+							"  pm.expect(text.length === 0 || text.includes(\"success\") || text.includes(\"eliminado\")).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/producto/{{producto_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"producto",
+						"{{producto_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cambiar estado producto no encontrado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const RESPONSE = pm.response.json();\r",
+							"\r",
+							"pm.test('message of response should to say \"Producto not found\"', function () {\r",
+							"    pm.expect(RESPONSE.message).to.eql('Producto not found');\r",
+							"});\r",
+							"\r",
+							"pm.test('the response should have a status code of 404', function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"estado\": \"En verificacion\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/producto/b91c559e-cb53-4946-82c0-44a2794b6f3c/estado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"producto",
+						"b91c559e-cb53-4946-82c0-44a2794b6f3c",
+						"estado"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cambiar estado producto no encontrado",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"estado\": \"Verificado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/producto/{{ID_PRODUCTO}}/estado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"producto",
+								"{{ID_PRODUCTO}}",
+								"estado"
+							]
+						}
+					},
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"Producto not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Cambiar estado producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const RESPONSE = pm.response.json();\r",
+							"\r",
+							"pm.test('new estado should to be En verificacion', function () {\r",
+							"    pm.expect(RESPONSE.estado).to.eql('En verificacion');\r",
+							"});\r",
+							"\r",
+							"pm.test('the response should have a status code of 200', function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"estado\": \"En verificacion\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/producto/{{ID_PRODUCTO}}/estado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"producto",
+						"{{ID_PRODUCTO}}",
+						"estado"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cambiar estado producto",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"estado\": \"En verificacion\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/producto/{{ID_PRODUCTO}}/estado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"producto",
+								"{{ID_PRODUCTO}}",
+								"estado"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"id\": \"ec5bd751-e022-486a-8b1c-0fe08397f0b1\",\n    \"nombre\": \"Café Barako\",\n    \"precio\": 2500,\n    \"imagen\": \"https://raw.githubusercontent.com/incarasa/imagenes-verdi/refs/heads/main/thpubInt_700X400_11270.webp\",\n    \"categoria\": \"Frutas\",\n    \"estado\": \"En verificacion\",\n    \"cantidad_vendida\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Intentar cambiar estado producto con estado invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const RESPONSE = pm.response.json();\r",
+							"\r",
+							"pm.test('should to say esatdo invalid', function () {\r",
+							"    pm.expect(RESPONSE.message).to.eql('Estado invalido: Cambiar estado.');\r",
+							"});\r",
+							"\r",
+							"pm.test('the response should have a status code of 412', function () {\r",
+							"    pm.response.to.have.status(412);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"estado\": \"Cambiar estado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/producto/{{ID_PRODUCTO}}/estado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"producto",
+						"{{ID_PRODUCTO}}",
+						"estado"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Intentar cambiar estado producto con estado invalido",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"estado\": \"Cambiar estado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/producto/{{ID_PRODUCTO}}/estado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"producto",
+								"{{ID_PRODUCTO}}",
+								"estado"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"Estado invalido: Cambiar estado.\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000/api/v1/producto"
+		},
+		{
+			"key": "producto_id",
+			"value": ""
+		},
+		{
+			"key": "ID_PRODUCTO",
+			"value": ""
+		}
+	]
+}

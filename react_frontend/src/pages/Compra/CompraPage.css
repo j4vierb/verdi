@@ -1,0 +1,58 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+.compra-page {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.title-groupR {
+  background-color: #0B2D21;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 400px;
+}
+
+.titleR {
+  color: white;
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+.menu-controls-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Puedes ajustar los siguientes selectores si usas clases específicas en los componentes hijos */
+
+.filtro-categorias button,
+.search-bar,
+.boton-carrito-icono {
+  background-color: white;
+  color: #0B2D21;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  transition: all 0.3s;
+}
+
+.filtro-categorias button:hover,
+.boton-carrito-icono:hover {
+  background-color: #e5e5e5;
+  transform: scale(1.05);
+
+}

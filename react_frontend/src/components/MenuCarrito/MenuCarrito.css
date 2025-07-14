@@ -1,0 +1,64 @@
+.carrito-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .boton-carrito-icono {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    position: relative;
+  }
+  
+  .contador-carrito {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 7px;
+  }
+  
+  .carrito-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: #173030;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 100;
+    color: white;
+  }
+  
+  .boton-eliminar {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .boton-checkout {
+    background: white;
+    color: #173030;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .boton-checkout:hover {
+    scale: 1.1;
+  }
+  

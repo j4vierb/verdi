@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "3a7b9bab-664b-4911-b37c-846a5efbe4e5",
+		"name": "Usuario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44991736",
+		"_collection_link": "https://martindelgordo.postman.co/workspace/Martin-Del-Gordo's-Workspace~3cff58f7-75f9-4790-8072-524ddec52f92/collection/44991736-3a7b9bab-664b-4911-b37c-846a5efbe4e5?action=share&source=collection_link&creator=44991736"
+	},
+	"item": [
+		{
+			"name": "Registro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"compra@correo.com\",\r\n  \"password\": \"123456\",\r\n  \"rol\": \"comprador\",\r\n  \"nombre\": \"Carlos Compra\",\r\n  \"telefono\": \"3115554444\",\r\n  \"fechaNacimiento\": \"1992-05-21\",\r\n  \"departamento\": \"Antioquia\",\r\n  \"ciudad\": \"Medellín\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminarUsuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"direccionRecoger\": \"Calle 123 #45-67\",\r\n  \"direccionEntregar\": \"Carrera 8 #65-98\",\r\n  \"estado\": \"Preparando los productos\",\r\n  \"fechaEntrega\": \"2025-06-01T10:00:00.000Z\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/8fff634b-c24b-443e-a01a-6f802429c525",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"8fff634b-c24b-443e-a01a-6f802429c525"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualziarUsuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"nuevo@mail.com\",\r\n  \"telefono\": \"3001234567\",\r\n  \"ciudad\": \"Bogotá\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/d9989b94-df80-45c5-a006-388a00754e2c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"d9989b94-df80-45c5-a006-388a00754e2c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

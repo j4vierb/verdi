@@ -1,0 +1,37 @@
+.title-grouppR {
+    background-color: #0B2D21;
+    height: 200px;
+}
+
+.titleR {
+    color: white;
+    font-size: 5em;
+    font-family: 'Inter', sans-serif; /* Aplica la tipografía Inter */
+    font-weight: 700;
+    padding-top: 39px;
+    padding-left: 50px;
+    
+}
+
+.elements-groupR {
+    display: block; /* Cambia inline-block a block para que text-align funcione */
+    text-align: center;
+}
+
+.feedback-button {
+    background-color: #ffffff; /* Color dorado para resaltar */
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+    margin-top: 45px;
+}
+
+.feedback-button:hover {
+    background-color: #d6d3d3; /* Un tono más oscuro al pasar el mouse */
+
+}

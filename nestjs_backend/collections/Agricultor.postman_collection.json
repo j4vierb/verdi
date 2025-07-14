@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "3ed0788c-aa78-4eac-b1e2-6cbf0bfcec63",
+		"name": "Agricultor API",
+		"description": "Colección para probar endpoints de Agricultor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29684470"
+	},
+	"item": [
+		{
+			"name": "GET todos los agricultores",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+							"pm.test(\"Debe ser array\", () => {",
+							"  pm.expect(pm.response.json()).to.be.an(\"array\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/agricultor",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"agricultor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST crear agricultor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200 o 201\", () => {",
+							"  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							"pm.test(\"Guardar ID del agricultor creado\", () => {",
+							"  const json = pm.response.json();",
+							"  pm.expect(json).to.have.property(\"id\");",
+							"  pm.environment.set(\"agricultor_id\", json.id);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Pedro P\\u00e9rez\",\n  \"email\": \"pedro@example.com\",\n  \"password\": \"123456\",\n  \"telefono\": \"3111234567\",\n  \"fechaNacimiento\": \"1985-10-10T00:00:00.000Z\",\n  \"departamento\": \"Cundinamarca\",\n  \"ciudad\": \"Bogot\\u00e1\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/agricultor",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"agricultor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET agricultor por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+							"pm.test(\"Tiene los campos clave\", () => {",
+							"  const json = pm.response.json();",
+							"  pm.expect(json).to.have.property(\"nombre\");",
+							"  pm.expect(json).to.have.property(\"email\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/agricultor/{{agricultor_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"agricultor",
+						"{{agricultor_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT actualizar agricultor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+							"pm.test(\"Nombre actualizado\", () => {",
+							"  const json = pm.response.json();",
+							"  pm.expect(json.nombre).to.eql(\"Pedro Actualizado\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Pedro Actualizado\",\n  \"email\": \"pedro2@example.com\",\n  \"password\": \"nueva123\",\n  \"telefono\": \"3000000000\",\n  \"fechaNacimiento\": \"1985-10-10T00:00:00.000Z\",\n  \"departamento\": \"Antioquia\",\n  \"ciudad\": \"Medell\\u00edn\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/agricultor/{{agricultor_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"agricultor",
+						"{{agricultor_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE agricultor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200 o 204\", () => {",
+							"  pm.expect(pm.response.code).to.be.oneOf([200, 204]);",
+							"});",
+							"pm.test(\"Agricultor eliminado\", () => {",
+							"  const text = pm.response.text();",
+							"  pm.expect(text.length === 0 || text.includes(\"success\") || text.includes(\"eliminado\")).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/agricultor/{{agricultor_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"agricultor",
+						"{{agricultor_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000/api/v1/agricultor"
+		},
+		{
+			"key": "agricultor_id",
+			"value": ""
+		}
+	]
+}

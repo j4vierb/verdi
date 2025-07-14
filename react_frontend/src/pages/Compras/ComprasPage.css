@@ -1,0 +1,99 @@
+.purchases-title h2 {
+	font-size: 2rem;
+	color: #fff;
+	margin: 0;
+	padding: 2rem 2rem;
+}
+
+.purchases-title {
+	display: flex;
+	align-items: center;
+	background-color: #0B2D21;
+	height: 5rem;
+}
+
+.purchases-section {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.purchases-section img {
+	width: 20%;
+	height: auto;
+	border-top-left-radius: 18px;
+	border-bottom-left-radius: 18px;
+}
+
+.purchases-card {
+	display: flex;
+	flex-direction: row;
+	border-color: #000;
+	border: solid;
+	border-radius: 20px;
+	margin-bottom: 1rem;
+	height: 10rem;
+	width: 100%;
+	max-width: 60rem;
+}
+
+.purchases-card .info-section {
+	width: 100%;
+}
+
+.info-section-title {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	height: 50%;
+}
+
+.info-section-title p {
+	text-align: center;
+	margin-left: 4rem;
+}
+
+.info-section .links {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	height: 50%;
+}
+
+.links a {
+	margin: 0 1.5rem;
+}
+
+@media only screen and (max-width: 450px) {
+	.purchases-section {
+		padding: 1rem;
+	}
+
+	.info-section {
+		min-width: 80%;
+	}
+
+	.info-section-title {
+		flex-direction: column;
+	}
+
+	.info-section-title h3 {
+		margin: 0;
+	}
+
+	.info-section-title p {
+		margin: 0;
+	}
+
+	.info-section-title p .status-tag {
+		display: inline;
+	}
+
+	a.status-button {
+		margin: 0.25rem;
+	}
+}

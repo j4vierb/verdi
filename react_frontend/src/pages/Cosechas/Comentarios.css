@@ -1,0 +1,43 @@
+.title-group {
+  background-color: #002d22;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.comentarios-container {
+  padding: 2rem;
+}
+
+.comentarios-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.comentarios-columna {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.comentario-item {
+  background-color: #f1f1f1;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid #003f2e;
+  border-radius: 8px;
+}
+
+.comentario-item strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}

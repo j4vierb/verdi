@@ -1,0 +1,24 @@
+.purchases-title {
+    display: flex;
+    align-items: center;
+    background-color: #0B2D21;
+    height: 5rem;
+    color: #fff;
+    padding: 3.5rem 0;
+}
+
+.purchases-title h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0;
+    padding: 2rem 2rem;
+    font-weight: 600;
+}
+
+.form-options button:last-child {
+    margin-left: 2.5rem;
+}
+
+.payment-form {
+    max-width: 40rem;
+}

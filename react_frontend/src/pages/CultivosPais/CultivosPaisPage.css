@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+
+.title-group {
+    background-color: #0B2D21;
+    padding: 2.5rem;
+}
+
+.title {
+    color: white;
+    font-weight: 700;
+    font-size: 3rem;   
+}
+
+.cultivos-page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.elements-group {
+    display: grid;
+    align-items: center;
+    row-gap: 2rem;
+    column-gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 2rem 1rem;
+    justify-items: center;
+    text-align: center;
+}
+
+@media screen and (max-width: 860px) {
+    .elements-group {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .elements-group {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,118 @@
+{
+  "register-payment-method": {
+    "title": "Register payment method",
+    "card-type": "Card type",
+    "card-number": "Card number",
+    "expiration-month": "Expiration month",
+    "expiration-year": "Expiration year",
+    "cancel": "Cancel",
+    "submit": "Register",
+    "errors": {
+      "card-type": "You must select a card type",
+      "card-number": "Invalid card number",
+      "expiration-month": "Invalid expiration month",
+      "expiration-year": "Invalid expiration year",
+      "cvn": "Invalid CVN"
+    }
+  },
+  "admin-harvest-page": {
+    "title": "Admin panel",
+    "subtitle": "New harvests",
+    "detail": "Details",
+    "status-button": {
+      "verify": "Verify",
+      "publish": "Publish",
+      "withdraw": "Withdraw"
+    }
+  },
+  "admin-register-eventuality": {
+    "title": "Register eventuality",
+    "form": {
+      "title": "Title",
+      "description": "Description",
+      "priority": "Priority",
+      "priority-low": "Low",
+      "priority-medium": "Medium",
+      "priority-high": "High",
+      "cancel": "Cancel",
+      "save": "Save",
+      "error": {
+        "title": "The title is required",
+        "description": "The description is required",
+        "priority": "The priority is required"
+      }
+    }
+  },
+  "admin-notifications-page": {
+    "title": "Admin panel",
+    "subtitle": "Notifications",
+    "relevance": {
+      "high": "High",
+      "mid": "Medium",
+      "low": "Low"
+    }
+  },
+  "compras-page": {
+    "title": "My purchases",
+    "status": "Status"
+  },
+
+  "pedidos": {
+    "titulo1": "Orders in progress",
+    "noEnCurso": "No orders in progress",
+    "pedido": "Order",
+    "modificar": "Modify",
+    "seguimiento": "Tracking",
+    "titulo2": "Delivered orders",
+    "noEntregados": "No delivered orders",
+    "retroalimentacion": "How did your order arrive?"
+  },
+  "pedidos-modificar": {
+    "info": "Order information",
+    "producto": "Product",
+    "precio": "Price",
+    "cancelar": "Cancel order",
+    "modi": "Edit order #{id}",
+    "noEncontrado": "Order information not found."
+  },
+  "pedidos-seguimiento": {
+    "noEncontrado":"No se encontró información del pedido.",
+    "seguimiento": "Tracking order #",
+    "fecha": "Estimated delivery date"
+  },
+  "pedidos-retroalimentacion": {
+    "pedido":"Feedback for order #{id}",
+    "enviar": "Send feedback"
+  },
+  "crear-usuario": {
+    "errorNombre":"Name is required",
+    "errorCorreo": "Invalid email",
+    "errorTelefono": "Invalid phone number",
+    "errorFecha": "Invalid date",
+    "errorDepto": "Select a department",
+    "errorCiudad": "A city is required",
+    "errorContraseña": "Your password must have at least 6 characters",
+    "crear": "Create your account",
+    "nombreApellido": "Full Name",
+    "nombre": "Name",
+    "correo": "Email",
+    "telefono": "Phone number",
+    "contraseña": "Password",
+    "fechaNac": "Birthdate",
+    "departamento": "Department",
+    "sel": "Select a department",
+    "ciudad": "City",
+    "rol": "Role",
+    "comprador": "Buyer",
+    "vendedor": "Seller",
+    "organizacion": "Organization",
+    "volver": "Back",
+    "cuenta": "Create Account"
+  },
+  "cosechas-retroalimentacion": {
+    "ver":"See feedback",
+    "comentarios": "Comments about your harvests",
+    "sobre": "About",
+    "no-comentarios": "There are no comments obout your harvests"
+  }
+}

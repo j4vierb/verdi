@@ -1,0 +1,124 @@
+{
+  "register-payment-method": {
+    "title": "Registrar medio de pago",
+    "card-type": "Tipo de tarjeta",
+    "card-number": "Número de tarjeta",
+    "expiration-month": "Mes de vencimiento",
+    "expiration-year": "Año de vencimiento",
+    "cancel": "Cancelar",
+    "submit": "Registrar",
+    "errors": {
+      "card-type": "Debe seleccionar un tipo de tarjeta",
+      "card-number": "Número de tarjeta inválido",
+      "expiration-month": "Mes de vencimiento inválido",
+      "expiration-year": "Año de vencimiento inválido",
+      "cvn": "CVN inválido"
+    }
+  },
+  "admin-harvest-page": {
+    "title": "Panel de administrador",
+    "subtitle": "Nuevas cosechas",
+    "detail": "Detalles",
+    "status-button": {
+      "verify": "Verificar",
+      "publish": "Publicar",
+      "withdraw": "Retirar"
+    }
+  },
+  "admin-register-eventuality": {
+    "title": "Registrar eventualidad",
+    "form": {
+      "title": "Título",
+      "description": "Descripción",
+      "priority": "Prioridad",
+      "priority-low": "Baja",
+      "priority-medium": "Media",
+      "priority-high": "Alta",
+      "cancel": "Cancelar",
+      "save": "Guardar",
+      "error": {
+        "title": "El título es requerido",
+        "description": "La descripción es requerida",
+        "priority": "La prioridad es requerida"
+      }
+    }
+  },
+  "admin-notifications-page": {
+    "title": "Panel de administrador",
+    "subtitle": "Notificaciones",
+    "relevance": {
+      "high": "Alta",
+      "mid": "Media",
+      "low": "Baja"
+    }
+  },
+  "compras-page": {
+    "title": "Mis compras",
+    "status": "Estado"
+  },
+
+  "pedidos": {
+    "titulo1": "Pedidos en curso",
+    "noEnCurso": "No hay pedidos en curso",
+    "pedido": "Pedido",
+    "modificar": "Modificar",
+    "seguimiento": "Seguimiento",
+    "titulo2": "Pedidos entregados",
+    "noEntregados": "No hay pedidos entregados",
+    "retroalimentacion": "¿Cómo llegó tu pedido?"
+
+  },
+  "pedidos-modificar": {
+    "info": "Información del pedido",
+    "producto": "Producto",
+    "precio": "Precio",
+    "cancelar": "Cancelar pedido",
+    "modi": "Modificar pedido #{id}",
+    "noEncontrado": "No se encontró información del pedido."
+  },
+  "pedidos-seguimiento": {
+    "noEncontrado":"No se encontró información del pedido.",
+    "seguimiento": "Seguimiento del pedido",
+    "fecha": "Fecha estimada de entrega"
+  }
+  ,
+  "pedidos-retroalimentacion": {
+    "pedido":"Retroalimentación del pedido #{id}",
+    "enviar": "Enviar comentario"
+  },
+  "crear-usuario": {
+    "errorNombre":"El nombre es obligatorio",
+    "errorCorreo":"Correo inválido",
+    "errorTelefono":"Número de teléfono inválido",
+    "errorFecha":"Una fecha es obligatoria",
+    "errorDepto": "Seleccione un departamento",
+    "errorCiudad": "Una ciudad es obligatoria",
+    "errorContraseña": "La contraseña ebe tener minimo 6 caracteres",
+    "crear": "Crear tu usuario",
+    "nombreApellido": "Nombre y Apellido",
+    "nombre": "Nombre",
+    "correo": "Correo electrónico",
+    "telefono": "Número de teléfono",
+    "contraseña": "Contraseña",
+    "fechaNac": "Fecha de nacimiento",
+    "departamento": "Departamento",
+    "sel": "Selecciona un departamento",
+    "ciudad": "Ciudad",
+    "rol": "Rol",
+    "comprador": "Comprador",
+    "vendedor": "Vendedor",
+    "organizacion": "Organización",
+    "volver": "Volver",
+    "cuenta": "Crear Cuenta"
+  },
+  "cosechas-retroalimentacion": {
+    "ver":"Ver retroalimentacion",
+    "comentarios": "Comentarios sobre tus cosechas",
+    "sobre": "Sobre",
+    "no-comentarios":"No hay comentarios sobre tus cosechas"
+  }
+
+
+  
+}
+

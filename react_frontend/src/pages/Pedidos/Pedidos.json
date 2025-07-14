@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "items": [
+        { "nombre": "Manzanas", "precio": 10000 },
+        { "nombre": "Plátanos", "precio": 80000 },
+        { "nombre": "Zanahorias", "precio": 70000 }
+      ],
+      "estado": "Estamos preparando tus productos",
+      "fechaEntrega": "2025-06-15"
+    },
+    {
+      "id": 2,
+      "items": [
+        { "nombre": "Peras", "precio": 60000 },
+        { "nombre": "Lechuga", "precio": 50000 },
+        { "nombre": "Tomates", "precio": 70000 }
+      ],
+      "estado": "Estamos recogiendo tus productos",
+      "fechaEntrega": "2025-10-10"
+    },
+    {
+      "id": 3,
+      "items": [
+        { "nombre": "Naranjas", "precio": 90000 },
+        { "nombre": "Espinacas", "precio": 70000 },
+        { "nombre": "Cebollas", "precio": 60000 }
+      ],
+      "estado": "Tus productos están en camino",
+      "fechaEntrega": "2025-11-25"
+    },
+    {
+      "id": 4,
+      "items": [
+        { "nombre": "Papas", "precio": 50000 },
+        { "nombre": "Cilantro", "precio": 20000 },
+        { "nombre": "Fresas", "precio": 75000 }
+      ],
+      "estado": "Entregado",
+      "fechaEntrega": "2025-03-10"
+    },
+    {
+      "id": 5,
+      "items": [
+        { "nombre": "Arándanos", "precio": 85000 },
+        { "nombre": "Limones", "precio": 45000 },
+        { "nombre": "Mango", "precio": 65000 }
+      ],
+      "estado": "Entregado",
+      "fechaEntrega": "2025-02-28"
+    },
+    {
+      "id": 6,
+      "items": [
+        { "nombre": "Uvas", "precio": 70000 },
+        { "nombre": "Pepino", "precio": 40000 },
+        { "nombre": "Sandía", "precio": 90000 }
+      ],
+      "estado": "Entregado",
+      "fechaEntrega": "2025-01-15"
+    }
+  ]
+  

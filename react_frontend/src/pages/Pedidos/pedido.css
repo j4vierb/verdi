@@ -1,0 +1,56 @@
+.card-pedido {
+    position: relative;
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 20px;
+    height: 300px;
+    width: 300px;
+    margin: 20px;
+    text-align: left;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    margin-left: 40px;
+}
+
+.card-items li {
+    font-size: 16px;
+}
+
+.card-cost {
+    font-size: 18px;
+    font-weight: bold;
+    color: #156E03;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.card-buttons button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+
+}
+
+.card-buttons button:hover {
+    background-color: #0056b3;
+}

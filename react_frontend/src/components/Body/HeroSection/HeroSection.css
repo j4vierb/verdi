@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+.hero-section {
+    position: relative;
+    height: 650px;
+    background-size: cover;
+    background-position: center;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif; /* Aplica la tipografía Inter */
+}
+
+.hero-overlay {
+    background: rgba(23, 48, 48, 0.5); /* Fondo semitransparente */
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 800px;
+}
+
+.hero-content {
+    color: white;
+}
+
+.titulo {
+    color: white;
+    display: block;
+    font-size: 96px;
+    font-weight: 700;
+    padding-top: 90px;
+    padding-left: 78px;
+    margin: 0;
+}
+
+.subtitulo {
+    font-size: 2rem;
+    margin: 20px;
+    color: white;
+    padding-left: 78px;
+    font-weight: 600;
+}
+
+.hero-button {
+    padding: 12px 24px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 25px;
+    background: #ffffff;
+    color: #173030;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: 2px solid white;
+    margin: auto;
+    display: block;
+    margin-top: 50px;
+}
+
+.hero-button:hover {
+    background: #173030;
+    color: white;
+}
+
+.seccion-boton {
+
+    height: 300px;
+}

@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+.venta-page {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.venta-menu {
+    background: #173030;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 100vw;
+    left: 0;
+    z-index: 100;
+    top: 70px;
+}
+
+.formulario-venta {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+
+    display: flex;              /* <== nuevo */
+    flex-direction: column;     /* <== nuevo */
+    gap: 10px;   
+}
+
+.formulario-venta label {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.formulario-venta input,
+.formulario-venta select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background: #f1f4ff;
+    transition: all 0.3s ease-in-out;
+}
+
+.formulario-venta input:focus,
+.formulario-venta select:focus {
+    outline: none;
+    border: 1px solid #173030;
+    box-shadow: 0 0 8px rgba(23, 48, 48, 0.3);
+}
+
+.boton-registrar {
+    margin-top: 60px;
+    padding: 15px;
+    background: #173030;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+.boton-registrar:hover {
+    transform: scale(1.05);
+}
+
+/* Banner verde superior */
+.venta-banner {
+  background-color: #0B2D21;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.venta-title {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+

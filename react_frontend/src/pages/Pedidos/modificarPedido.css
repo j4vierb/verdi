@@ -1,0 +1,79 @@
+.title-group {
+    background-color: #0B2D21;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+}
+
+.title {
+    color: white;
+    font-size: 3.5em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    margin: 0;
+}
+
+.order-number {
+    color: white;
+    font-size: 3.5em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.pedido-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.pedido-table th, .pedido-table td {
+    text-align: left;
+    padding: 10px;
+}
+
+.pedido-table th {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.pedido-table td {
+    border-bottom: 1px dotted #5c6695;
+    width: 50%; 
+    font-size: 16px;
+}
+
+.pedido-footer {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-top: 20px;
+}
+
+.eliminar-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.eliminar-btn:hover {
+    background-color: #c9302c;
+}
+
+.pedido-total {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+    text-align: right;
+    margin-right: 250px;
+}
+
+.pedido-container {
+    margin-left: 300px;
+    max-width: 800px; 
+}
